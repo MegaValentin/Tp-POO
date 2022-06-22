@@ -1,15 +1,18 @@
 # Tp-POO
-Trabajo Practico Paradigma de Objetos...
-* Proyecto que conste de:
-    * Polimorfismo
-    * Encapsulamiento
-    * Herencia
-    * 5 Clases
-    * 3 Metodos
-    * Al menos 4 funciones heredadas e implementadas
-    * Constructores con uno y/o varios parametros
-  
- * Terminal
- * Scripts(ejecutable)
+
+//TRABAJO PRACTICO N°1:  POO
+//proyecto
+//=>polimorfismo
+//=>encapsulamiento
+//=>herencia(abstraccion)
+//que se pueda correr por terminal
+//script(ejecutable)
+
+//CONDICIONES: 
+//-5 clases 
+//-2 abstractas 
+//-seters y geters 
+//-al menos 4 funciones heredadas e implementacines 
+//-constructores con uno y/o varios parametros
  
  
