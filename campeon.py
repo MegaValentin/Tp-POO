@@ -1,4 +1,7 @@
 #Misma elavoracion de la clase Personajes pero sin modificadores de accesos
+#Todos los atributos y metodos son unicos
+#Clase padre
+
 class Campeon:
 
     nombre = "Default"
