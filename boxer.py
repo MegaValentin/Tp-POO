@@ -10,5 +10,5 @@ class Boxer(Slapped):
         return self.toma
 
     def blow(self,vida):
-       vida -=1
-    blow(vida)
+       
+    
