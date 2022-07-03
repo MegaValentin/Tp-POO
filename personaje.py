@@ -13,6 +13,7 @@ class Personaje:
         self.__vida = vida
 
     def atributos(self):
+        #cambiar print para probar en pantalla
         print(self.__nombre, ":", sep = "")
         print("Fuerza:", self.__fuerza)
         print("Defensa:", self.__defensa)
