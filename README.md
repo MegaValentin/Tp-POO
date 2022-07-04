@@ -12,7 +12,7 @@
 //-5 clases 
 //-2 abstractas 
 //-seters y geters 
-//-al menos 4 funciones heredadas e implementacines 
+//-al menos 4 funciones heredadas e implementaciones 
 //-constructores con uno y/o varios parametros
  
  
