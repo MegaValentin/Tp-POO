@@ -1,4 +1,4 @@
-from campeon import Campeon
+from domain.campeon import Campeon
 
 class Mago(Campeon):
 

@@ -31,21 +31,19 @@ class Campeon:
 
     def morir(self):
         self.vida = 0
-        print(self.nombre, "esta murido")
+        print(self.nombre, "ha muerto")
     
     def daño(self, enemigo):
-        return  self.fuerza - enemigo.defensa 
+        return  self.fuerza - enemigo.defensa
 
     def atacar(self, enemigo):
         daño = self.daño(enemigo)
-        enemigo.__vida = enemigo.__vida - daño
-        print(self.__nombre, "ha realizado", daño, "puntos de daño", enemigo.nombre)
+        enemigo.vida = enemigo.vida - daño
+        print(self.nombre, "ha realizado", daño, "puntos de daño a ", enemigo.nombre)
         if enemigo.esta_vivo():
             print("la vida de ", enemigo.nombre, "es", enemigo.vida)
         else:
             enemigo.morir()
 
-    def get_fuerza(self):
-        return self.fuerza
-
+    
  
