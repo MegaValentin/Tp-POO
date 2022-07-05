@@ -2,8 +2,6 @@ import logging
 from domain.guerrero import Guerrero
 from domain.mago import Mago
 
-
-
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
 personaje_1 = Guerrero("Garen", 10, 3, 100, 10)
