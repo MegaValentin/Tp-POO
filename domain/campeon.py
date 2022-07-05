@@ -22,6 +22,9 @@ class Campeon:
         print("Defensa:", self.defensa)
         print("Vida:", self.vida)
 
+    def __str__(self) -> str:
+        return self.nombre  + ": " + str(self.fuerza) + " " + str(self.defensa) + " " + str(self.vida)
+
     def subir_nivel(self, fuerza, defensa):
         self.fuerza = self.fuerza + fuerza
         self.defensa = self.defensa + defensa
