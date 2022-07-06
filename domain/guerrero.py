@@ -19,7 +19,7 @@ class Guerrero(Campeon):
         super().atributos()
         print("Espada: ", self.espada)
 
-    def golpe_objeto(self, enemigo):
+    def special_hit(self, enemigo):
         return self.fuerza*self.espada - enemigo.defensa
 
 

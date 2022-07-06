@@ -31,14 +31,20 @@ class Campeon:
         self.defensa = self.defensa + defensa
 
     def esta_vivo(self):
-        return self.vida > 0
+        return self.vida >= 0
 
     def morir(self):
         self.vida = 0
         logging.info(" ha muerto %s", str(self.nombre ))
     
-    def daño(self, enemigo):
-        return  self.fuerza - enemigo.defensa
+    def damage(self, enemigo):
+        blow = self.fuerza - enemigo.defensa
+        if blow < 0 :
+            blow = 0
+            logging.info("null blow")
+            
+            return blow
+
 
     def atacar(self, enemigo):
         daño = self.daño(enemigo)
@@ -51,6 +57,6 @@ class Campeon:
 
 x = Campeon("mega", 10, 20, 30)
 y = Campeon("nico", 5, 20, 10)
-x.atacar(y)
+x.damage(y)
     
  
