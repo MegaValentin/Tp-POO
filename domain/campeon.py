@@ -1,7 +1,8 @@
 #Misma elavoracion de la clase Personajes pero sin modificadores de accesos
 #Todos los atributos y metodos son unicos
 #Clase padre
-
+import logging
+logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 class Campeon:
 
     nombre = "Default"
@@ -15,12 +16,12 @@ class Campeon:
         self.fuerza = fuerza
         self.defensa = defensa
         self.vida = vida
-
+#status
     def atributos(self):
-        print(self.nombre, ":", sep = "")
-        print("Fuerza:", self.fuerza)
-        print("Defensa:", self.defensa)
-        print("Vida:", self.vida)
+        logging.info(self.nombre)
+        logging.info("Fuerza: %s ", self.fuerza)
+        logging.info("Defensa: %s ", self.defensa)
+        logging.info("Vida: %s", self.vida)
 
     def __str__(self) -> str:
         return self.nombre  + ": " + str(self.fuerza) + " " + str(self.defensa) + " " + str(self.vida)
@@ -34,7 +35,7 @@ class Campeon:
 
     def morir(self):
         self.vida = 0
-        print(self.nombre, "ha muerto")
+        logging.info(" ha muerto %s", str(self.nombre ))
     
     def daño(self, enemigo):
         return  self.fuerza - enemigo.defensa
@@ -42,11 +43,14 @@ class Campeon:
     def atacar(self, enemigo):
         daño = self.daño(enemigo)
         enemigo.vida = enemigo.vida - daño
-        print(self.nombre, "ha realizado", daño, "puntos de daño a ", enemigo.nombre)
+        logging.info("%s ha realizado %i puntos de daño a %s", str(self.nombre),  int(daño),  str(enemigo.nombre))
         if enemigo.esta_vivo():
-            print("la vida de ", enemigo.nombre, "es", enemigo.vida)
+            logging.info("la vida del enemigo es: %s", int(enemigo.vida))
         else:
             enemigo.morir()
 
+x = Campeon("mega", 10, 20, 30)
+y = Campeon("nico", 5, 20, 10)
+x.atacar(y)
     
  
