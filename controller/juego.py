@@ -1,6 +1,6 @@
 import logging
-from domain.guerrero import Guerrero
-from domain.mago import Mago
+from domain.type.guerrero import Guerrero
+from domain.type.mago import Mago
 
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
