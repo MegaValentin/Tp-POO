@@ -12,9 +12,9 @@ personaje_2 = Mago("Lux", 5, 3, 100, 20)
 def combate(jugador_1, jugador_2):
     turno = 0
     while jugador_1.esta_vivo() and jugador_2.esta_vivo:
-        logging.info("Turno: " + str(turno))
+        logging.info("Turno: " + int(turno))
         
-        logging.info("\n Turno:" +  str(turno))
+        logging.info("\n Turno:" +  int(turno))
         logging.info(">>> Accion de "+ str(jugador_1.nombre) +  ":" )
         jugador_1.atacar(jugador_2)
         logging.info(">>> Accion de " +  str(jugador_2.nombre)+ ":")
