@@ -1,4 +1,7 @@
 from domain.campeon import Campeon
+import logging
+
+logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
 class Mago(Campeon):
 
@@ -8,16 +11,16 @@ class Mago(Campeon):
 
     def atributos(self):
         super().atributos()
-        print("Libro: ", self.libro)
+        logging.info("Libro: %s", str(self.libro))
 
-    def cambiar_objeto(self):
-        opcion = int(input("Elige un libro: (1) Libro oscuro, daño 10. (2) Libro de los mares, daño 8 "))
+    def special_move(self):
+        opcion = int(input("Elige un movimiento especial: (1) bolas de fuego, daño 10. (2) Picos de nieve, daño 8 "))
         if opcion == 1:
             self.libro = 10
         elif opcion == 2:
             self.libro = 8
         else:
-            print("El numero de librp es icorrecto")
+            logging.info("El numero de movimiento es icorrecto")
 
-    def golpe_objeto(self, enemigo):
+    def special_hit(self, enemigo):
         return self.fuerza*self.libro - enemigo.defensa
