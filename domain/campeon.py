@@ -3,8 +3,10 @@
 #Clase padre
 import logging
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
-class Campeon:
 
+'''Clase padre, que contiene los atributos y metodos basicos que heredan los personajes'''
+
+class Campeon:
     nombre = "Default"
     fuerza = 0
     defensa = 0
@@ -17,7 +19,7 @@ class Campeon:
         self.defensa = defensa
         self.vida = vida
 #status
-    def atributos(self):
+    def status(self):
         logging.info(self.nombre)
         logging.info("Fuerza: %s ", self.fuerza)
         logging.info("Defensa: %s ", self.defensa)

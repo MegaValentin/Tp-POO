@@ -1,6 +1,9 @@
 
 import logging
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
+
+
+
 class Personaje:
 
     nombre = "Default"
@@ -15,8 +18,8 @@ class Personaje:
         self.__defensa = defensa
         self.__vida = vida
 
-    def atributos(self):
-        #cambiar print para probar en pantalla
+    def status(self):
+
         logging.info(self.nombre)
         logging.info("Fuerza: %s ", self.fuerza)
         logging.info("Defensa: %s ", self.defensa)
