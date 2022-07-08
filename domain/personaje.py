@@ -1,3 +1,6 @@
+
+import logging
+logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 class Personaje:
 
     nombre = "Default"
@@ -14,10 +17,10 @@ class Personaje:
 
     def atributos(self):
         #cambiar print para probar en pantalla
-        print(self.__nombre, ":", sep = "")
-        print("Fuerza:", self.__fuerza)
-        print("Defensa:", self.__defensa)
-        print("Vida:", self.__vida)
+        logging.info(self.nombre)
+        logging.info("Fuerza: %s ", self.fuerza)
+        logging.info("Defensa: %s ", self.defensa)
+        logging.info("Vida: %s", self.vida)
 
     def subir_nivel(self, fuerza, defensa):
         self.__fuerza = self.__fuerza + fuerza

@@ -8,4 +8,5 @@ class Mazo(Cartas):
     def __init__(self, campeones, numerosCartas):
         self.cartas = []
         for campeones in range(12):
+
             
