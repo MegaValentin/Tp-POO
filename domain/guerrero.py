@@ -1,4 +1,4 @@
-from domain.campeon import Campeon
+from campeon import Campeon
 import logging
 
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
@@ -26,3 +26,6 @@ class Guerrero(Campeon):
         return self.fuerza*self.espada - enemigo.defensa
 
 
+x = Guerrero("mati", 10, 40,100, 20)
+
+x.atributos()

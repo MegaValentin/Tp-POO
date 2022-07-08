@@ -1,4 +1,4 @@
-from domain.campeon import Campeon
+from campeon import Campeon
 import logging
 
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
@@ -25,3 +25,5 @@ class Arquero(Campeon):
     def special_hit(self, enemigo):
         return self.fuerza*self.arco - enemigo.defensa
   
+x = Arquero("mati", 10, 20, 100, 20)
+x.atributos()

@@ -57,6 +57,6 @@ class Campeon:
 
 x = Campeon("mega", 10, 20, 30)
 y = Campeon("nico", 5, 20, 10)
-x.damage(y)
+x.atributos()
     
  
