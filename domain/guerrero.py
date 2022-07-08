@@ -1,18 +1,43 @@
-from campeon import Campeon
 import logging
 
-from domain.personaje import Personaje
+from campeon import Campeon
 
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
 '''Clase hija que extiende de Campeon'''
 
-class Guerrero(Personaje):
+class Guerrero(Campeon):
 
     def __init__(self, nombre, fuerza, defensa, vida, espada):
         super().__init__(nombre, fuerza, defensa, vida)
         self.__espada = espada
+    
+    def get_fuerza(self):
+        return self.__fuerza
 
+    def set_fuerza(self, fuerza):
+        if fuerza < 0:
+            print("Error al ingresar un numero negativos")
+        else:
+            self.__fuerza = fuerza
+
+    def get_defensa(self):
+        return self.__defensa
+
+    def set_defensa(self, defensa):
+        if defensa < 0:
+            print("Error al ingresar un numero negativos")
+        else:
+            self.__defensa = defensa
+
+    def get_vida(self):
+        return self.__vida
+    
+    def set_vida(self, vida):
+        if vida < 0:
+            print("Error al ingresar un numero negativos")
+        else:
+            self.__vida = vida
     def get_espada(self):
         return self.__espada
         
@@ -39,7 +64,7 @@ class Guerrero(Personaje):
     def special_hit(self, enemigo):
         return self.fuerza*self.__espada - enemigo.defensa
 
+   
 
-x = Guerrero("mati", 10, 40,100, 20)
 
-x.atributos()
+

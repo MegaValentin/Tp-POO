@@ -1,6 +1,9 @@
+from domain.seleccion import Seleccion
 
-# juego 0
+aliado = int(input("selecciones un numero de la carta Aliada:  "))
+enemigo = int(input("selecciones un numero del carta Enemiga: "))
 
-
-# if __name__ == "__main__":
+hola = Seleccion
+hola.seleccionDePersonajeAliado(aliado)
+hola.seleccionDePersonajeEnemigo(enemigo)
      
