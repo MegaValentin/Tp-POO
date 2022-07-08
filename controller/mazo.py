@@ -5,8 +5,12 @@ logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
 class Mazo(Cartas):
     
-    def __init__(self, campeones, numerosCartas):
+    campeones = Cartas.listaCampeones
+
+    def __init__(self):
         self.cartas = []
         for campeones in range(12):
+            
+
 
             
