@@ -9,6 +9,9 @@ class Gigante(Campeon):
         super().__init__(nombre, fuerza, defensa, vida)
         self.bate = bate
     
+    def get_bate(self):
+        return self.bate
+    
     def special_move(self):
         opcion = int(input("Elige un movimiento especial: (1)Aplastar-->daño 20, (2)Demoler-->daño 15"))
         if opcion == 1:

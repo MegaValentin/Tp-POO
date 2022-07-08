@@ -51,6 +51,13 @@ class Personaje:
         else:
             self.__fuerza = fuerza
 
+    def get_defensa(self):
+        return self.__defensa
+
+    def get_vida(self):
+        return self.__vida
+
+
 mi_personaje = Personaje("mega", 10, 20, 100)
 
 mi_personaje.set_fuerza(-30)

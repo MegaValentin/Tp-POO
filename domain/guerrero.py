@@ -9,6 +9,9 @@ class Guerrero(Campeon):
         super().__init__(nombre, fuerza, defensa, vida)
         self.espada = espada
 
+    def get_espada(self):
+        return self.espada
+
     def special_move(self):
         opcion = int(input("Elige un movimiento especial: (1) Golpe duro, daño 10. (2) Corte, daño 8 "))
         if opcion == 1:

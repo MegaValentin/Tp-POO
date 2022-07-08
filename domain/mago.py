@@ -9,6 +9,9 @@ class Mago(Campeon):
         super().__init__(nombre, fuerza, defensa, vida)
         self.libro = libro
 
+    def get_libro(self):
+        return self.libro
+
     def atributos(self):
         super().atributos()
         logging.info("Libro: %s", str(self.libro))

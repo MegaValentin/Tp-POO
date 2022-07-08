@@ -45,7 +45,6 @@ class Campeon:
             
             return blow
 
-
     def atacar(self, enemigo):
         daño = self.daño(enemigo)
         enemigo.vida = enemigo.vida - daño
