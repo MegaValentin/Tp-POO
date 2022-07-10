@@ -103,7 +103,7 @@ class Mago(Campeon):
             enemigo.morir()
 
 
-x = Mago("cantinflas", 15, 20, 100, 30 )
-y = Mago("coco", 20, 10, 100, 20)
+# x = Mago("cantinflas", 15, 20, 100, 30 )
+# y = Mago("coco", 20, 10, 100, 20)
 
-x.attack(y)
+# x.attack(y)
