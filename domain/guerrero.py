@@ -18,7 +18,7 @@ class Guerrero(Campeon):
 
     def __str__(self) -> str:
         return self.nombre  + ": " + str(self.__fuerza) + " " + str(self.__defensa) + " " + str(self.__vida) + " " + str(self.__espada)
-    
+    ### GET y SET ###
     def get_fuerza(self):
         return self.__fuerza
 
@@ -53,6 +53,21 @@ class Guerrero(Campeon):
             print("Error al ingresar un numero negativos")
         else:
             self.__espada = espada
+   
+    ### GET y SET ###
+    def status(self):
+        logging.info( "%s",str(self.nombre))
+        logging.info("Fuerza: %s ", str(self.__fuerza))
+        logging.info("Defensa: %s ", str(self.__defensa))
+        logging.info("Vida: %s", str(self.__vida))
+        logging.info("Espada: %s", str(self.__espada))
+    
+    def esta_vivo(self):
+        return self.__vida >= 0
+
+    def morir(self):
+        self.vida = 0
+        logging.info(" ha muerto %s", str(self.nombre ))
     
     def special_move(self):
         opcion = int(input("Elige un movimiento especial: (1) Golpe duro, daño 10. (2) Corte, daño 8 "))
@@ -63,15 +78,26 @@ class Guerrero(Campeon):
         else:
             logging.info("El numero de movimiento es icorrecto")
 
-    def status(self):
-        logging.info( "%s",str(self.nombre))
-        logging.info("Fuerza: %s ", str(self.__fuerza))
-        logging.info("Defensa: %s ", str(self.__defensa))
-        logging.info("Vida: %s", str(self.__vida))
-        logging.info("Espada: %s", str(self.__espada))
 
     def special_hit(self, enemigo):
-        return self.fuerza*self.__espada - enemigo.defensa
+        return self.__fuerza*self.__espada - enemigo.__defensa
+
+    def damage(self, enemigo):
+        blow = self.__fuerza - enemigo.__defensa
+        if blow < 0 :
+            blow = 0
+            logging.info("null blow")
+            
+            return blow
+    
+    def attack(self, enemigo):
+        daño = self.damage(enemigo)
+        enemigo.vida = enemigo.vida - daño
+        logging.info("%s ha realizado %i puntos de daño a %s", str(self.nombre),  int(daño),  str(enemigo.nombre))
+        if enemigo.esta_vivo():
+            logging.info("la vida del enemigo es: %s", int(enemigo.vida))
+        else:
+            enemigo.morir()
 
    
 

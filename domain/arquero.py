@@ -8,6 +8,7 @@ logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
 class Arquero(Campeon):
 
+    # Metodo Constructor
     def __init__(self, nombre, fuerza, defensa, vida, arco):
         self.nombre = nombre
         self.__fuerza = fuerza
@@ -18,6 +19,7 @@ class Arquero(Campeon):
     def __str__(self) -> str:
         return self.nombre  + ": " + str(self.__fuerza) + " " + str(self.__defensa) + " " + str(self.__vida) + " " + str(self.__arco)
    
+    ## GET Y SET ##
     def get_fuerza(self):
         return self.__fuerza
 
@@ -52,9 +54,9 @@ class Arquero(Campeon):
             print("Error al ingresar un numero negativos")
         else:
             self.__arco = arco
+    ## GET y SET
 
     '''Funcion que hace referencia a un ataque especial'''
-
     def special_move(self):
         opcion = int(input("Elige un movimiento especial: (1)flechas multiples-->daño 15, (2)Flecha dorada-->daño 10"))
         if opcion == 1:
@@ -74,8 +76,31 @@ class Arquero(Campeon):
         logging.info("Vida: %s", str(self.__vida))
         logging.info("Espada: %s", str(self.__arco))
     
+    def esta_vivo(self):
+        return self.__vida >= 0
+    
+    def morir(self):
+        self.vida = 0
+        logging.info(" ha muerto %s", str(self.nombre ))
+    
     '''funcion que hace referencia a un ataque critico'''
-
     def special_hit(self, enemigo):
-        return self.fuerza*self.__arco - enemigo.defensa
+        return self.__fuerza*self.__arco - enemigo.__defensa
+
+    def damage(self, enemigo):
+        blow = self.__fuerza - enemigo.__defensa
+        if blow < 0 :
+            blow = 0
+            logging.info("null blow")
+            
+            return blow
+    
+    def attack(self, enemigo):
+        daño = self.damage(enemigo)
+        enemigo.vida = enemigo.vida - daño
+        logging.info("%s ha realizado %i puntos de daño a %s", str(self.nombre),  int(daño),  str(enemigo.nombre))
+        if enemigo.esta_vivo():
+            logging.info("la vida del enemigo es: %s", int(enemigo.vida))
+        else:
+            enemigo.morir()
   
