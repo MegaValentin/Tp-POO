@@ -9,9 +9,15 @@ logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 class Arquero(Campeon):
 
     def __init__(self, nombre, fuerza, defensa, vida, arco):
-        super().__init__(nombre, fuerza, defensa, vida)
+        self.nombre = nombre
+        self.__fuerza = fuerza
+        self.__defensa = defensa
+        self.__vida = vida
         self.__arco = arco
 
+    def __str__(self) -> str:
+        return self.nombre  + ": " + str(self.__fuerza) + " " + str(self.__defensa) + " " + str(self.__vida) + " " + str(self.__arco)
+   
     def get_fuerza(self):
         return self.__fuerza
 
@@ -60,9 +66,13 @@ class Arquero(Campeon):
 
     '''Funcion que hace referencia a las caracteristicas del objeto de la carta '''
 
+    
     def status(self):
-        super().status()
-        logging.info("Arco: %s", str(self.__arco))
+        logging.info( "%s",str(self.nombre))
+        logging.info("Fuerza: %s ", str(self.__fuerza))
+        logging.info("Defensa: %s ", str(self.__defensa))
+        logging.info("Vida: %s", str(self.__vida))
+        logging.info("Espada: %s", str(self.__arco))
     
     '''funcion que hace referencia a un ataque critico'''
 
