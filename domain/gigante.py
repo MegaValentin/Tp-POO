@@ -10,9 +10,15 @@ logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 class Gigante(Campeon):
 
     def __init__(self, nombre, fuerza, defensa, vida, bate):
-        super().__init__(nombre, fuerza, defensa, vida)
+        self.nombre = nombre
+        self.__fuerza = fuerza
+        self.__defensa = defensa
+        self.__vida = vida
         self.__bate = bate
     
+    def __str__(self) -> str:
+        return self.nombre  + ": " + str(self.__fuerza) + " " + str(self.__defensa) + " " + str(self.__vida) + " " + str(self.__bate)
+
     def get_fuerza(self):
         return self.__fuerza
 
@@ -58,8 +64,11 @@ class Gigante(Campeon):
             logging.info("El numero de movimiento es incorrecto")
 
     def status(self):
-        super().status()
-        logging.info("Bate: %s", str(self.__bate))
+        logging.info( "%s",str(self.nombre))
+        logging.info("Fuerza: %s ", str(self.__fuerza))
+        logging.info("Defensa: %s ", str(self.__defensa))
+        logging.info("Vida: %s", str(self.__vida))
+        logging.info("Espada: %s", str(self.__bate))
     
     def special_hit(self, enemigo):
         return self.fuerza*self.bate - enemigo.defensa

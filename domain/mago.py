@@ -9,9 +9,15 @@ logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 class Mago(Campeon):
 
     def __init__(self, nombre, fuerza, defensa, vida, libro):
-        super().__init__(nombre, fuerza, defensa, vida)
+        self.nombre = nombre
+        self.__fuerza = fuerza
+        self.__defensa = defensa
+        self.__vida = vida
         self.__libro = libro
     
+    def __str__(self) -> str:
+        return self.nombre  + ": " + str(self.__fuerza) + " " + str(self.__defensa) + " " + str(self.__vida) + " " + str(self.__libro)
+        
     def get_fuerza(self):
         return self.__fuerza
 
@@ -48,8 +54,11 @@ class Mago(Campeon):
             self.__libro = libro
     
     def status(self):
-        super().status()
-        logging.info("Libro: %s", str(self.__libro))
+        logging.info( "%s",str(self.nombre))
+        logging.info("Fuerza: %s ", str(self.__fuerza))
+        logging.info("Defensa: %s ", str(self.__defensa))
+        logging.info("Vida: %s", str(self.__vida))
+        logging.info("Espada: %s", str(self.__libro))
 
     '''Funcion que hace referencia a un ataque especial del personaje'''
 
