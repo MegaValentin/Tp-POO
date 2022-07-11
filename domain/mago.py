@@ -1,11 +1,9 @@
 import logging
 from campeon import Campeon
 
-
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
 '''Clase hija que extiende de Campeon'''
-
 class Mago(Campeon):
 
     #Metodo Constructor
@@ -18,7 +16,6 @@ class Mago(Campeon):
     
     def __str__(self) -> str:
         return self.nombre  + ": " + str(self.__fuerza) + " " + str(self.__defensa) + " " + str(self.__vida) + " " + str(self.__libro)
-
 
     ##GET Y SET##   
     def get_fuerza(self):
@@ -75,14 +72,14 @@ class Mago(Campeon):
     def special_move(self):
         opcion = int(input("Elige un movimiento especial: (1) bolas de fuego, daño 40. (2) Picos de nieve, daño 50 "))
         if opcion == 1:
-            Mago.set_libro(40)
+           self.__libro = 40
         elif opcion == 2:
-            Mago.set_libro(50)
+            self.__libro = 50
         else:
             logging.info("El numero de movimiento es icorrecto")
 
     def special_hit(self, enemigo):
-        return self.fuerza*self.__libro - enemigo.__defensa
+        return self.__fuerza*self.__libro - enemigo.__defensa
 
     def damage(self, enemigo):
         blow = self.__fuerza - enemigo.__defensa
@@ -101,9 +98,3 @@ class Mago(Campeon):
             logging.info("la vida del enemigo es: %s", int(enemigo.vida))
         else:
             enemigo.morir()
-
-
-# x = Mago("cantinflas", 15, 20, 100, 30 )
-# y = Mago("coco", 20, 10, 100, 20)
-
-# x.attack(y)

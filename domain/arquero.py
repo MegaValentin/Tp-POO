@@ -3,9 +3,7 @@ from campeon import Campeon
 
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
-
 '''Clase hija que extiende de Campeon'''
-
 class Arquero(Campeon):
 
     # Metodo Constructor
@@ -56,19 +54,6 @@ class Arquero(Campeon):
             self.__arco = arco
     ## GET y SET
 
-    '''Funcion que hace referencia a un ataque especial'''
-    def special_move(self):
-        opcion = int(input("Elige un movimiento especial: (1)flechas multiples-->daño 15, (2)Flecha dorada-->daño 10"))
-        if opcion == 1:
-            Arquero.set_arco(15)
-        elif opcion == 2:
-            Arquero.set_arco(10)
-        else:
-            logging.info("El numero de moviemiento es incorrecto")
-
-    '''Funcion que hace referencia a las caracteristicas del objeto de la carta '''
-
-    
     def status(self):
         logging.info( "%s",str(self.nombre))
         logging.info("Fuerza: %s ", str(self.__fuerza))
@@ -80,9 +65,19 @@ class Arquero(Campeon):
         return self.__vida >= 0
     
     def morir(self):
-        self.vida = 0
+        self.__vida = 0
         logging.info(" ha muerto %s", str(self.nombre ))
-    
+
+    '''Funcion que hace referencia a un ataque especial'''
+    def special_move(self):
+        opcion = int(input("Elige un movimiento especial: (1)flechas multiples-->daño 15, (2)Flecha dorada-->daño 10"))
+        if opcion == 1:
+            self.__arco = 15
+        elif opcion == 2:
+            self.__arco = 10
+        else:
+            logging.info("El numero de moviemiento es incorrecto")
+
     '''funcion que hace referencia a un ataque critico'''
     def special_hit(self, enemigo):
         return self.__fuerza*self.__arco - enemigo.__defensa
