@@ -54,12 +54,13 @@ class Arquero(Campeon):
             self.__arco = arco
     ## GET y SET
 
+    ## Funciones del Personaje ##
     def status(self):
         logging.info( "%s",str(self.nombre))
         logging.info("Fuerza: %s ", str(self.__fuerza))
         logging.info("Defensa: %s ", str(self.__defensa))
         logging.info("Vida: %s", str(self.__vida))
-        logging.info("Espada: %s", str(self.__arco))
+        logging.info("Arco: %s", str(self.__arco))
     
     def esta_vivo(self):
         return self.__vida >= 0
@@ -78,7 +79,6 @@ class Arquero(Campeon):
         else:
             logging.info("El numero de moviemiento es incorrecto")
 
-    '''funcion que hace referencia a un ataque critico'''
     def special_hit(self, enemigo):
         return self.__fuerza*self.__arco - enemigo.__defensa
 
@@ -98,4 +98,4 @@ class Arquero(Campeon):
             logging.info("la vida del enemigo es: %s", int(enemigo.vida))
         else:
             enemigo.morir()
-  
+    

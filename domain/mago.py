@@ -15,7 +15,7 @@ class Mago(Campeon):
         self.__libro = libro
     
     def __str__(self) -> str:
-        return self.nombre  + ": " + str(self.__fuerza) + " " + str(self.__defensa) + " " + str(self.__vida) + " " + str(self.__libro)
+        return self.nombre  + ": " + int(self.__fuerza) + " " + int(self.__defensa) + " " + int(self.__vida) + " " + int(self.__libro)
 
     ##GET Y SET##   
     def get_fuerza(self):
@@ -54,12 +54,13 @@ class Mago(Campeon):
             self.__libro = libro
     ## GET y SET##
 
+    ## Funciones del Personaje ##
     def status(self):
         logging.info( "%s",str(self.nombre))
         logging.info("Fuerza: %s ", str(self.__fuerza))
         logging.info("Defensa: %s ", str(self.__defensa))
         logging.info("Vida: %s", str(self.__vida))
-        logging.info("Espada: %s", str(self.__libro))
+        logging.info("Libro: %s", str(self.__libro))
 
     def esta_vivo(self):
         return self.__vida >= 0

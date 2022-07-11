@@ -54,6 +54,7 @@ class Guerrero(Campeon):
             self.__espada = espada
     ### GET y SET ###
 
+    ## Funciones del Personaje ##
     def status(self):
         logging.info( "%s",str(self.nombre))
         logging.info("Fuerza: %s ", str(self.__fuerza))
@@ -76,7 +77,6 @@ class Guerrero(Campeon):
            self.__espada = 15
         else:
             logging.info("El numero de movimiento es icorrecto")
-
 
     def special_hit(self, enemigo):
         return self.__fuerza*self.__espada - enemigo.__defensa
