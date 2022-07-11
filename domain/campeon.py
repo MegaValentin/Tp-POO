@@ -6,7 +6,6 @@ import logging
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
 '''Clase padre, que contiene los atributos y metodos basicos que heredan los personajes'''
-
 class Campeon(ABC):
     
     @abstractclassmethod

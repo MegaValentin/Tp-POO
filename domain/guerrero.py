@@ -1,11 +1,9 @@
 import logging
-
 from campeon import Campeon
 
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
 '''Clase hija que extiende de Campeon'''
-
 class Guerrero(Campeon):
 
     #Metodo constructor
@@ -18,6 +16,7 @@ class Guerrero(Campeon):
 
     def __str__(self) -> str:
         return self.nombre  + ": " + str(self.__fuerza) + " " + str(self.__defensa) + " " + str(self.__vida) + " " + str(self.__espada)
+
     ### GET y SET ###
     def get_fuerza(self):
         return self.__fuerza
@@ -53,8 +52,8 @@ class Guerrero(Campeon):
             print("Error al ingresar un numero negativos")
         else:
             self.__espada = espada
-   
     ### GET y SET ###
+
     def status(self):
         logging.info( "%s",str(self.nombre))
         logging.info("Fuerza: %s ", str(self.__fuerza))
@@ -66,15 +65,15 @@ class Guerrero(Campeon):
         return self.__vida >= 0
 
     def morir(self):
-        self.vida = 0
+        self.__vida = 0
         logging.info(" ha muerto %s", str(self.nombre ))
     
     def special_move(self):
-        opcion = int(input("Elige un movimiento especial: (1) Golpe duro, daño 10. (2) Corte, daño 8 "))
+        opcion = int(input("Elige un movimiento especial: (1) Golpe duro, daño 20. (2) Corte, daño 15 : "))
         if opcion == 1:
-            Guerrero.set_espada(10)
+            self.__espada = 20
         elif opcion == 2:
-           Guerrero.set_espada(8)
+           self.__espada = 15
         else:
             logging.info("El numero de movimiento es icorrecto")
 
@@ -98,8 +97,3 @@ class Guerrero(Campeon):
             logging.info("la vida del enemigo es: %s", int(enemigo.vida))
         else:
             enemigo.morir()
-
-   
-
-
-

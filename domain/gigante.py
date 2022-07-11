@@ -1,12 +1,9 @@
-
 import logging
-
 from campeon import Campeon
 
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
 '''Clase hija que extiende de Campeon'''
-
 class Gigante(Campeon):
 
     # Metodo Constructor
@@ -68,22 +65,20 @@ class Gigante(Campeon):
         return self.__vida >= 0
 
     def morir(self):
-        self.vida = 0
+        self.__vida = 0
         logging.info(" ha muerto %s", str(self.nombre ))
 
     def special_move(self):
         opcion = int(input("Elige un movimiento especial: (1)Aplastar-->daño 20, (2)Demoler-->daño 15"))
         if opcion == 1:
-           Gigante.set_bate(20)
+           self.__bate = 20
         elif opcion == 2:
-            Gigante.set_bate(15)
+            self.__bate = 10
         else:
             logging.info("El numero de movimiento es incorrecto")
 
-    
-
     def special_hit(self, enemigo):
-        return self.fuerza*self.bate - enemigo.defensa
+        return self.__fuerza*self.__bate - enemigo.__defensa
 
     def damage(self, enemigo):
         blow = self.__fuerza - enemigo.__defensa
