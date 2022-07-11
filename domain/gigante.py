@@ -53,13 +53,14 @@ class Gigante(Campeon):
         else:
             self.__bate = bate
     ##GET y SET##
-
+    
+    ## Funciones del Personaje ##
     def status(self):
         logging.info( "%s",str(self.nombre))
         logging.info("Fuerza: %s ", str(self.__fuerza))
         logging.info("Defensa: %s ", str(self.__defensa))
         logging.info("Vida: %s", str(self.__vida))
-        logging.info("Espada: %s", str(self.__bate))
+        logging.info("Bate: %s", str(self.__bate))
     
     def esta_vivo(self):
         return self.__vida >= 0
