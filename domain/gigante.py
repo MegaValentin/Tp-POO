@@ -81,19 +81,23 @@ class Gigante(Campeon):
     def special_hit(self, enemigo):
         return self.__fuerza*self.__bate - enemigo.__defensa
 
-    def damage(self, enemigo):
-        blow = self.__fuerza - enemigo.__defensa
-        if blow < 0 :
-            blow = 0
-            logging.info("null blow")
-            
-            return blow  
-    
-    def attack(self, enemigo):
-        daño = self.damage(enemigo)
-        enemigo.vida = enemigo.vida - daño
-        logging.info("%s ha realizado %i puntos de daño a %s", str(self.nombre),  int(daño),  str(enemigo.nombre))
+    def special_attack(self, enemigo):
+        specialDamage = self.special_hit(enemigo)
+        enemigo.__vida = enemigo.__vida - specialDamage
+        logging.info("%s ha realizado %s puntos de daño a %s", str(self.nombre),  str(specialDamage),  str(enemigo.nombre))
         if enemigo.esta_vivo():
-            logging.info("la vida del enemigo es: %s", int(enemigo.vida))
+            logging.info("la vida del enemigo es: %s", str(enemigo.__vida))
         else:
-            enemigo.morir()
+            enemigo.__morir()
+
+    def damage(self, enemigo):
+        return self.__fuerza - enemigo.__defensa
+
+    def attack(self, enemigo):
+        damage = self.damage(enemigo)
+        enemigo.__vida = enemigo.__vida - damage
+        logging.info("%s ha realizado %s puntos de daño a %s", str(self.nombre),  str(damage),  str(enemigo.nombre))
+        if enemigo.esta_vivo():
+            logging.info("la vida del enemigo es: %s", str(enemigo.__vida))
+        else:
+            enemigo.__morir()
