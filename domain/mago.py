@@ -1,4 +1,5 @@
 import logging
+import re
 from campeon import Campeon
 
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
@@ -66,7 +67,7 @@ class Mago(Campeon):
         return self.__vida >= 0
 
     def morir(self):
-        self.vida = 0
+        self.__vida = 0
         logging.info(" ha muerto %s", str(self.nombre )) 
 
     '''Funcion que hace referencia a un ataque especial del personaje'''
@@ -82,20 +83,25 @@ class Mago(Campeon):
     def special_hit(self, enemigo):
         return self.__fuerza*self.__libro - enemigo.__defensa
 
+    def special_attack(self, enemigo):
+        specialDamage = self.special_hit(enemigo)
+        enemigo.__vida = enemigo.__vida - specialDamage
+        logging.info("%s ha realizado %s puntos de daño a %s", str(self.nombre),  str(specialDamage),  str(enemigo.nombre))
+        if enemigo.esta_vivo():
+            logging.info("la vida del enemigo es: %s", str(enemigo.__vida))
+        else:
+            enemigo.__morir()
+
     def damage(self, enemigo):
-        blow = self.__fuerza - enemigo.__defensa
-        if blow < 0 :
-            blow = 0
-            logging.info("null blow")
-            enemigo.__defensa - 1
-            
-            return blow
+        return self.__fuerza - enemigo.__defensa
 
     def attack(self, enemigo):
-        daño = self.damage
-        int(enemigo.__vida) - daño
-        logging.info("%s ha realizado %i puntos de daño a %s", str(self.nombre),  int(daño),  str(enemigo.nombre))
+        damage = self.damage(enemigo)
+        enemigo.__vida = enemigo.__vida - damage
+        logging.info("%s ha realizado %s puntos de daño a %s", str(self.nombre),  str(damage),  str(enemigo.nombre))
         if enemigo.esta_vivo():
-            logging.info("la vida del enemigo es: %s", int(enemigo.vida))
+            logging.info("la vida del enemigo es: %s", str(enemigo.__vida))
         else:
-            enemigo.morir()
+            enemigo.__morir()
+
+

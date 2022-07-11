@@ -31,6 +31,10 @@ class Campeon(ABC):
         pass
 
     @abstractclassmethod
+    def special_attack(self):
+        pass
+
+    @abstractclassmethod
     def damage(self):
         """Daño hacia el enemigo"""
         pass
