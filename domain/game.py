@@ -1,11 +1,9 @@
 import logging
+from domain.giant import Giant
+from domain.archer import Archer
+from domain.wizard import Wizard
+from domain.warrior import Warrior
 
-from campeon import Campeon
-
-from giant import Giant
-from archer import Archer
-from wizard import Wizard
-from warrior import Warrior
 class Game:
     card1 =  Warrior("CACHO", 30, 10, 100, 14)
     card2 =  Warrior("GAREN", 20, 2, 100, 16)
@@ -59,6 +57,8 @@ class Game:
             logging.info(Game.card5.status())
         else: 
             logging.info("Solamente hay 5 campeones para elegir")
+
+    
 
     
 

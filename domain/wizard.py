@@ -1,5 +1,5 @@
 import logging
-from campeon import Campeon
+from domain.campeon import Campeon
 
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 

@@ -1,5 +1,5 @@
 import logging
-from campeon import Campeon
+from domain.campeon import Campeon
 
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
@@ -101,3 +101,6 @@ class Warrior(Campeon):
             logging.info("la vida del enemigo es: %s", str(enemigo.__vida))
         else:
             enemigo.__morir()
+
+   
+        
