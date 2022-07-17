@@ -4,20 +4,20 @@ from campeon import Campeon
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
 '''Clase hija que extiende de Campeon'''
-class Gigante(Campeon):
+class Wizard(Campeon):
 
-    # Metodo Constructor
-    def __init__(self, nombre, fuerza, defensa, vida, bate):
+    #Metodo Constructor
+    def __init__(self, nombre, fuerza, defensa, vida, libro):
         self.nombre = nombre
         self.__fuerza = fuerza
         self.__defensa = defensa
         self.__vida = vida
-        self.__bate = bate
+        self.__libro = libro
     
     def __str__(self) -> str:
-        return self.nombre  + ": " + str(self.__fuerza) + " " + str(self.__defensa) + " " + str(self.__vida) + " " + str(self.__bate)
+        return self.nombre  + ": " + int(self.__fuerza) + " " + int(self.__defensa) + " " + int(self.__vida) + " " + int(self.__libro)
 
-    ##GET y SET##
+    ##GET Y SET##   
     def get_fuerza(self):
         return self.__fuerza
 
@@ -44,42 +44,43 @@ class Gigante(Campeon):
             print("Error al ingresar un numero negativos")
         else:
             self.__vida = vida
-    def get_bate(self):
-        return self.__bate
-    
-    def set_bate(self, bate):
-        if bate< 0:
+    def get_libro(self):
+        return self.__libro
+
+    def set_libro(self, libro):
+        if libro< 0:
             print("Error al ingresar un numero negativos")
         else:
-            self.__bate = bate
-    ##GET y SET##
-    
+            self.__libro = libro
+    ## GET y SET##
+
     ## Funciones del Personaje ##
     def status(self):
         logging.info( "%s",str(self.nombre))
         logging.info("Fuerza: %s ", str(self.__fuerza))
         logging.info("Defensa: %s ", str(self.__defensa))
         logging.info("Vida: %s", str(self.__vida))
-        logging.info("Bate: %s", str(self.__bate))
-    
+        logging.info("Libro: %s", str(self.__libro))
+
     def esta_vivo(self):
         return self.__vida >= 0
 
     def morir(self):
         self.__vida = 0
-        logging.info(" ha muerto %s", str(self.nombre ))
+        logging.info(" ha muerto %s", str(self.nombre )) 
 
+    '''Funcion que hace referencia a un ataque especial del personaje'''
     def special_move(self):
-        opcion = int(input("Elige un movimiento especial: (1)Aplastar-->daño 20, (2)Demoler-->daño 15"))
+        opcion = int(input("Elige un movimiento especial: (1) bolas de fuego, daño 40. (2) Picos de nieve, daño 50 "))
         if opcion == 1:
-           self.__bate = 20
+           self.__libro = 40
         elif opcion == 2:
-            self.__bate = 10
+            self.__libro = 50
         else:
-            logging.info("El numero de movimiento es incorrecto")
+            logging.info("El numero de movimiento es icorrecto")
 
     def special_hit(self, enemigo):
-        return self.__fuerza*self.__bate - enemigo.__defensa
+        return self.__fuerza*self.__libro - enemigo.__defensa
 
     def special_attack(self, enemigo):
         specialDamage = self.special_hit(enemigo)
@@ -101,3 +102,5 @@ class Gigante(Campeon):
             logging.info("la vida del enemigo es: %s", str(enemigo.__vida))
         else:
             enemigo.__morir()
+
+

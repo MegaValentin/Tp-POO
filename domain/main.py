@@ -1,9 +1,9 @@
-from seleccion import Seleccion
+from game import Game
 
-aliado = int(input("selecciones un numero de la carta Aliada:  "))
-enemigo = int(input("selecciones un numero del carta Enemiga: "))
+ally = int(input("selecciones un numero de la carta Aliada:  "))
+enemy = int(input("selecciones un numero del carta Enemiga: "))
 
-cartas = Seleccion
-cartas.seleccionDePersonajeAliado(aliado)
-cartas.seleccionDePersonajeEnemigo(enemigo)
+card = Game
+card.alliedSelection(ally)
+card.enemySelection(enemy)
      

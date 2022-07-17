@@ -4,7 +4,7 @@ from campeon import Campeon
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
 '''Clase hija que extiende de Campeon'''
-class Guerrero(Campeon):
+class Warrior(Campeon):
 
     #Metodo constructor
     def __init__(self, nombre, fuerza, defensa, vida, espada):
