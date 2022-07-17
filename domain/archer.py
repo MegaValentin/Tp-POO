@@ -1,10 +1,10 @@
 import logging
-from campeon import Campeon
+from domain.campeon import Campeon
 
 logging.basicConfig(filename="logs/TP-OPP", level=logging.INFO)
 
 '''Clase hija que extiende de Campeon'''
-class Arquero(Campeon):
+class Archer(Campeon):
 
     # Metodo Constructor
     def __init__(self, nombre, fuerza, defensa, vida, arco):
